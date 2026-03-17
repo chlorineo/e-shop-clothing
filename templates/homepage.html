@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Eshop Homepage</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+
+            body{
+            background:#e9e9e9;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+            }
+
+            .navbar{
+            background:#d6d6d6;
+            }
+
+            .banner{
+            background:#cfcfcf;
+            height:600px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:60px;
+            font-weight:300;
+            margin-top:15px;
+            }
+
+            .banner img{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
+            
+            .page-content{
+                flex:1;
+            }
+
+            .category-box{
+            background:#bdbdbd;
+            height:200px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:28px;
+            margin-bottom:10px;
+            }
+
+            .category-box img{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
+
+            .category-scroll{
+            background:#dedede;
+            padding:15px;
+            margin-top:20px;
+            }
+
+            .footer{
+            background:#b0b0b0;
+            padding:10px;
+            font-size:14px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <select class="form-select w-auto">
+                    <option selected disabled hidden>Categories</option>
+                    <option>T-shirts</option>
+                    <option>Pants</option>
+                    <option>Jackets</option>
+                    <option>Boots</option>
+                </select>
+
+                <form class="mx-auto w-50">
+                    <input class="form-control" type="search" placeholder="Search...">
+                </form>
+
+                <div>
+                    <a href="#" class="btn btn-light">Cart</a>
+                    <a href="#" class="btn btn-light">Login</a>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- BANNER -->
+
+                <div class="banner">
+                    <img src="images/banner.jpg" alt="Banner">
+                </div>
+
+
+                <!-- CATEGORY ROW -->
+
+                <div class="category-scroll">
+
+                    <div class="row text-center">
+
+                        <div class="col-md-3">
+                            <div class="category-box">
+                                <img src="images/boots.jpg" alt="T-shirts">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="category-box">
+                                <img src="images/boots.jpg" alt="Pants">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="category-box">
+                                <img src="images/boots.jpg" alt="Jackets">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="category-box">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <div class="container-fluid">
+
+                Contacts |
+                Conditions of Use |
+                Privacy Policy |
+                Payment and Delivery
+
+            </div>
+
+        </div>
+
+    </body>
+</html>

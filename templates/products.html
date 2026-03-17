@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Product List</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <style>
+
+            body{
+            background:#e6e6e6;
+            }
+
+            .navbar{
+            background:#d4d4d4;
+            }
+
+            .sidebar{
+            background:#cfcfcf;
+            padding:15px;
+            }
+
+            .filter-box{
+            margin-bottom:20px;
+            }
+
+            .product-grid{
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
+            gap:20px;
+            justify-content:start;
+            }
+
+            .product-card{
+            background:#777;
+            padding:10px;
+            color:white;
+            border:4px solid #555;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .product-image{
+            background:#bdbdbd;
+            height:150px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:black;
+            font-size:20px;
+            margin-bottom:5px;
+            }
+            
+            .product-image img{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+            }
+
+            .product-name{
+            background:#ddd;
+            color:black;
+            padding:3px;
+            margin-bottom:5px;
+            text-align:center;
+            }
+
+            .product-description{
+            height:minmax(80px, 200px);
+            align-items:center;
+            justify-content:center;
+            flex:1;
+            text-align:center;
+            }
+
+            .price{
+            background:#ddd;
+            color:black;
+            padding:3px 8px;
+            }
+
+            .sort-btn{
+            margin-right:10px;
+            }
+
+            .footer{
+            background:#b0b0b0;
+            padding:8px;
+            margin-top:20px;
+            font-size:13px;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <!-- NAVBAR -->
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <select class="form-select w-auto">
+                    <option selected disabled hidden>Categories</option>
+                    <option>T-shirts</option>
+                    <option>Pants</option>
+                    <option>Jackets</option>
+                    <option>Boots</option>
+                </select>
+
+                <form class="mx-auto w-50">
+                    <input class="form-control" type="search" placeholder="Search...">
+                </form>
+
+                <div>
+                    <a href="#" class="btn btn-light">Cart</a>
+                    <a href="#" class="btn btn-light">Login</a>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- BODY -->
+        <div class="container-fluid mt-3">
+
+            <div class="row">
+
+                <!-- FILTER SIDEBAR -->
+
+                <div class="col-md-2 sidebar">
+
+                    <h4>Filters</h4>
+
+                    <div class="filter-box">
+
+                        <label>Price Range</label>
+                        <input type="range" class="form-range">
+
+                        <div class="d-flex justify-content-between">
+                            <span>min €</span>
+                            <span>max €</span>
+                        </div>
+
+                    </div>
+
+                    <div class="filter-box">
+
+                        <label>Colors</label>
+
+                        <div><input type="checkbox"> color 1</div>
+                        <div><input type="checkbox"> color 2</div>
+                        <div><input type="checkbox"> color 3</div>
+                        <div><input type="checkbox"> color 4</div>
+                        <div><input type="checkbox"> color 5</div>
+
+                    </div>
+
+                    <div class="filter-box">
+
+                        <label>Materials</label>
+
+                        <div><input type="checkbox"> material 1</div>
+                        <div><input type="checkbox"> material 2</div>
+                        <div><input type="checkbox"> material 3</div>
+                        <div><input type="checkbox"> material 4</div>
+                        <div><input type="checkbox"> material 5</div>
+
+                    </div>
+
+                    <div class="filter-box">
+
+                        <label>Size</label>
+
+                        <div><input type="checkbox"> size 1</div>
+                        <div><input type="checkbox"> size 2</div>
+                        <div><input type="checkbox"> size 3</div>
+                        <div><input type="checkbox"> size 4</div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MAIN CONTENT -->
+
+                <div class="col-md-10">
+
+                    <h1>Category Name</h1>
+
+                    <div class="bg-secondary text-white p-2 mb-3">
+                    Results for: search term
+                    </div>
+
+                    <div class="mb-3">
+
+                    <strong>Sort by:</strong>
+
+                    <button class="btn btn-light sort-btn">Highest Rated</button>
+                    <button class="btn btn-light sort-btn">Cheapest</button>
+                    <button class="btn btn-light sort-btn">Most Expensive</button>
+                    <button class="btn btn-light sort-btn">Newest</button>
+
+                    </div>
+
+
+                    <!-- PRODUCT GRID -->
+
+                    <div class="product-grid">
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/boots.jpg" alt="Boots">
+                            </div>
+                            <div class="product-name">
+                                <label>Product Name</label>
+                            </div>
+                            <div class="product-description">
+                                <label>Lorem ipsum dolor sit amet consent per conubia nostra inceptos himenaeos.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="price">Price</div>
+                                <button class="btn btn-sm btn-light">Add to Cart</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAGINATION -->
+
+                    <div class="d-flex justify-content-between mt-4">
+
+                        <button class="btn btn-light">
+                            < Previous
+                        </button>
+
+                        <button class="btn btn-light">
+                            Next >
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            Contacts |
+            Conditions of Use |
+            Privacy Policy |
+            Payment and Delivery
+
+        </div>
+
+    </body>
+</html>
