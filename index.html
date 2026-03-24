@@ -8,7 +8,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+
         body{
             background:#e9e9e9;
             display:flex;
@@ -19,8 +21,6 @@
         .navbar{
             background:#d6d6d6;
         }
--->
-    <style>
 
         .banner{
             background:#cfcfcf;
@@ -60,6 +60,7 @@
         }
 
         .category-scroll{
+            background:#dedede;
             padding:15px;
             margin-top:20px;
         }
@@ -75,26 +76,37 @@
 </head>
 
 <body>
-<header class="navbar navbar-expand-md d-flex justify-content-between align-items-center border-bottom p-3" style="height: 90px">
-    <section class="d-flex align-items-center gap-4">
-        <a href="index.html" class="navbar-brand">LOGO</a>
+<header class="navbar navbar-expand-md border-bottom p-3" style="min-height: 90px">
+    <div class="container-fluid">
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="navbar-toggler-icon"></i>
+        </button>
 
-        <nav>
-            <ul class="nav">
+        <a href="index.html" class="navbar-brand mx-auto mx-md-0 fw-bold">LOGO</a>
+
+        <div class="d-md-none invisible pe-none">
+            <button class="navbar-toggler border-0" type="button">
+                <i class="navbar-toggler-icon"></i>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <section class="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center order-md-last ms-md-auto mt-4 mt-md-0">
+                <form class="w-100"><input class="form-control" type="search" placeholder="Search..."></form>
+                <div class="d-flex flex-column flex-md-row gap-3">
+                    <a href="profile.html" class="text-body"><i class="bi bi-person fs-3"></i></a>
+                    <a href="cart.html" class="text-body"><i class="bi bi-bag fs-4"></i></a>
+                </div>
+            </section>
+
+            <ul class="navbar-nav gap-2 gap-md-0 mt-4 mt-md-0 ms-md-4">
                 <li class="nav-item"><a class="nav-link active fs-5" href="category.html">Men's</a></li>
                 <li class="nav-item"><a class="nav-link active fs-5" href="category.html">Women's</a></li>
                 <li class="nav-item"><a class="nav-link active fs-5" href="category.html">Unisex</a></li>
                 <li class="nav-item"><a class="nav-link active fs-5" href="category.html">Accessories</a></li>
             </ul>
-        </nav>
-    </section>
-
-    <section class="d-flex gap-3 align-items-center">
-        <form><input class="form-control form-control" type="search" placeholder="Search..."></form>
-
-        <a href="profile.html"><i class="bi bi-person fs-3"></i></a>
-        <a href="cart.html"><i class="bi bi-bag fs-4"></i></a>
-    </section>
+        </div>
+    </div>
 </header>
 
 <div class="page-content">
@@ -103,7 +115,7 @@
         <!-- BANNER -->
 
         <div class="banner">
-            <img src="assets/img/HomePage/banner.jpg" alt="Banner">
+            <img src="assets/img/banner.jpg" alt="Banner">
         </div>
 
 
@@ -115,25 +127,25 @@
 
                 <div class="col-md-3">
                     <div class="category-box">
-                        <img src="assets/img/HomePage/menClothing.jpg" alt="Men's">
+                        <img src="assets/img/menClothing.jpg" alt="Men's">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="category-box">
-                        <img src="assets/img/HomePage/womenClothing.png" alt="Women's">
+                        <img src="assets/img/womenClothing.png" alt="Women's">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="category-box">
-                        <img src="assets/img/HomePage/unisex.jpg" alt="Unisex">
+                        <img src="assets/img/unisex.jpg" alt="Unisex">
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="category-box">
-                        <img src="assets/img/HomePage/accesories.jpg" alt="Accessories">
+                        <img src="assets/img/accesories.jpg" alt="Accessories">
                     </div>
                 </div>
 
