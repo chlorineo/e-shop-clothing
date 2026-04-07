@@ -31,7 +31,7 @@
                 <section class="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center order-md-last ms-md-auto mt-4 mt-md-0">
                     <form class="w-100"><input class="form-control" type="search" placeholder="Search..."></form>
                     <div class="d-flex flex-column flex-md-row gap-3">
-                        <a href="{{ url('/profile') }}" class="text-body"><i class="bi bi-person fs-3"></i></a>
+                        <a href="{{ url('dashboard') }}" class="text-body"><i class="bi bi-person fs-3"></i></a>
                         <a href="{{ url('/cart') }}" class="text-body"><i class="bi bi-bag fs-4"></i></a>
                     </div>
                 </section>
