@@ -13,7 +13,7 @@
                         <div class="row g-4 mb-4 align-items-center">
                             <div class="col-4">
                                 <div class="ratio ratio-1x1 bg-light border">
-                                    <img src="../../public/assets/img/mens/DressShirtPink.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/DressShirtPink.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-8">
@@ -33,7 +33,7 @@
                         <div class="row g-4 mb-4 align-items-center">
                             <div class="col-4">
                                 <div class="ratio ratio-1x1 bg-light border">
-                                    <img src="../../public/assets/img/mens/ManBeigeCoat.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/ManBeigeCoat.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-8">
@@ -53,7 +53,7 @@
                         <div class="row g-4 mb-4 align-items-center">
                             <div class="col-4">
                                 <div class="ratio ratio-1x1 bg-light border">
-                                    <img src="../../public/assets/img/mens/ManDenimCoat.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/ManDenimCoat.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-8">
@@ -73,7 +73,7 @@
                         <div class="row g-4 mb-4 align-items-center">
                             <div class="col-4">
                                 <div class="ratio ratio-1x1 bg-light border">
-                                    <img src="../../public/assets/img/mens/ManDenimJacket.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/ManDenimJacket.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-8">
@@ -93,7 +93,7 @@
                         <div class="row g-4 mb-4 align-items-center">
                             <div class="col-4">
                                 <div class="ratio ratio-1x1 bg-light border">
-                                    <img src="../../public/assets/img/mens/ManDenimJacket2.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/ManDenimJacket2.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-8">

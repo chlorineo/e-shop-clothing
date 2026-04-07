@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="ratio ratio-1x1 bg-white border">
-                                    <img src="../../public/assets/img/mens/ManDenimJacket.jpg" alt="product" class="object-fit-contain">
+                                    <img src="assets/img/mens/ManDenimJacket.jpg" alt="product" class="object-fit-contain">
                                 </div>
                             </div>
                             <div class="col-2">

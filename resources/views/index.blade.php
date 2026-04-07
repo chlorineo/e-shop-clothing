@@ -68,7 +68,7 @@
         <!-- BANNER -->
 
         <div class="banner">
-            <img src="../../public/assets/img/HomePage/banner.jpg" alt="Banner">
+            <img src="assets/img/HomePage/banner.jpg" alt="Banner">
         </div>
 
 
@@ -81,7 +81,7 @@
                 <div class="col-md-3">
                     <a href="category.blade.php">
                         <div class="category-box">
-                            <img src="../../public/assets/img/HomePage/menClothing.jpg" alt="Men's">
+                            <img src="assets/img/HomePage/menClothing.jpg" alt="Men's">
                             <div class="category-text">Men's</div>
                         </div>
                     </a>
@@ -90,7 +90,7 @@
                 <div class="col-md-3">
                     <a href="category.blade.php">
                         <div class="category-box">
-                            <img src="../../public/assets/img/HomePage/womenClothing.png" alt="Women's">
+                            <img src="assets/img/HomePage/womenClothing.png" alt="Women's">
                             <div class="category-text">Women's</div>
                         </div>
                     </a>
@@ -99,7 +99,7 @@
                 <div class="col-md-3">
                     <a href="category.blade.php">
                         <div class="category-box">
-                            <img src="../../public/assets/img/HomePage/unisex.jpg" alt="Unisex">
+                            <img src="assets/img/HomePage/unisex.jpg" alt="Unisex">
                             <div class="category-text">Unisex</div>
                         </div>
                     </a>
@@ -108,7 +108,7 @@
                 <div class="col-md-3">
                     <a href="category.blade.php">
                         <div class="category-box">
-                            <img src="../../public/assets/img/HomePage/accesories.jpg" alt="Accessories">
+                            <img src="assets/img/HomePage/accesories.jpg" alt="Accessories">
                             <div class="category-text">Accessories</div>
                         </div>
                     </a>

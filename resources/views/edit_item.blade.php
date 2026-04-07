@@ -8,13 +8,13 @@
             <p class="fs-4 mb-3">Add photos</p>
             <div class="d-flex gap-3 mb-5 flex-wrap">
                 <div class="ratio ratio-1x1 border bg-light rounded me-1" style="width: 100px;">
-                    <img src="../../public/assets/img/mens/ManDenimJacket.jpg" alt="product image" class="object-fit-contain rounded">
+                    <img src="assets/img/mens/ManDenimJacket.jpg" alt="product image" class="object-fit-contain rounded">
                 </div>
                 <div class="ratio ratio-1x1 border bg-light rounded me-1" style="width: 100px;">
-                    <img src="../../public/assets/img/mens/ManDenimJacket2.jpg" alt="product image" class="object-fit-contain rounded">
+                    <img src="assets/img/mens/ManDenimJacket2.jpg" alt="product image" class="object-fit-contain rounded">
                 </div>
                 <div class="ratio ratio-1x1 border bg-light rounded me-1" style="width: 100px;">
-                    <img src="../../public/assets/img/mens/ManDenimJeans1.jpg" alt="product image" class="object-fit-contain rounded">
+                    <img src="assets/img/mens/ManDenimJeans1.jpg" alt="product image" class="object-fit-contain rounded">
                 </div>
                 <div class="ratio ratio-1x1 border bg-light rounded" style="width: 100px;">
                     <button type="button" class="btn btn-outline-secondary w-100 h-100 d-flex align-items-center justify-content-center">

@@ -167,7 +167,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManTshirtWhite.jpg" alt="White T-Shirt">
+                            <img src="assets/img/mens/ManTshirtWhite.jpg" alt="White T-Shirt">
                         </div>
                         <div class="product-name">
                             <label>White T-Shirt</label>
@@ -180,7 +180,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManTshirtPink.jpg" alt="Pink T-Shirt">
+                            <img src="assets/img/mens/ManTshirtPink.jpg" alt="Pink T-Shirt">
                         </div>
                         <div class="product-name">
                             <label>Pink T-Shirt</label>
@@ -193,7 +193,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManTshirtGray.jpg" alt="Gray T-Shirt">
+                            <img src="assets/img/mens/ManTshirtGray.jpg" alt="Gray T-Shirt">
                         </div>
                         <div class="product-name">
                             <label>Gray T-Shirt</label>
@@ -206,7 +206,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManSuitDarkBlue.jpg" alt="Dark Blue Suit">
+                            <img src="assets/img/mens/ManSuitDarkBlue.jpg" alt="Dark Blue Suit">
                         </div>
                         <div class="product-name">
                             <label>Dark Blue Suit</label>
@@ -219,7 +219,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManSuitBlack.jpg" alt="Black Suit">
+                            <img src="assets/img/mens/ManSuitBlack.jpg" alt="Black Suit">
                         </div>
                         <div class="product-name">
                             <label>Black Suit</label>
@@ -232,7 +232,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManDressShirtRed.jpg" alt="Red Dress Shirt">
+                            <img src="assets/img/mens/ManDressShirtRed.jpg" alt="Red Dress Shirt">
                         </div>
                         <div class="product-name">
                             <label>Red Dress Shirt</label>
@@ -245,7 +245,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/DressShirtPink.jpg" alt="Pink Dress Shirt">
+                            <img src="assets/img/mens/DressShirtPink.jpg" alt="Pink Dress Shirt">
                         </div>
                         <div class="product-name">
                             <label>Pink Dress Shirt</label>
@@ -258,7 +258,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManRedHoodie.jpg" alt="Red Hoodie">
+                            <img src="assets/img/mens/ManRedHoodie.jpg" alt="Red Hoodie">
                         </div>
                         <div class="product-name">
                             <label>Red Hoodie</label>
@@ -271,7 +271,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManDenimCoat.jpg" alt="Denim Coat">
+                            <img src="assets/img/mens/ManDenimCoat.jpg" alt="Denim Coat">
                         </div>
                         <div class="product-name">
                             <label>Denim Coat</label>
@@ -284,7 +284,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManGrayJacket.jpg" alt="Gray Jacket">
+                            <img src="assets/img/mens/ManGrayJacket.jpg" alt="Gray Jacket">
                         </div>
                         <div class="product-name">
                             <label>Gray Jacket</label>
@@ -297,7 +297,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManBeigeCoat.jpg" alt="Beige Coat">
+                            <img src="assets/img/mens/ManBeigeCoat.jpg" alt="Beige Coat">
                         </div>
                         <div class="product-name">
                             <label>Beige Coat</label>
@@ -310,7 +310,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManDenimJeans1.jpg" alt="Denim Jeans">
+                            <img src="assets/img/mens/ManDenimJeans1.jpg" alt="Denim Jeans">
                         </div>
                         <div class="product-name">
                             <label>Denim Jeans</label>
@@ -323,7 +323,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManDenimJacket.jpg" alt="Denim Jacket">
+                            <img src="assets/img/mens/ManDenimJacket.jpg" alt="Denim Jacket">
                         </div>
                         <div class="product-name">
                             <label>Denim Jacket</label>
@@ -336,7 +336,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManTrousers.png" alt="Trousers">
+                            <img src="assets/img/mens/ManTrousers.png" alt="Trousers">
                         </div>
                         <div class="product-name">
                             <label>Trousers</label>
@@ -349,7 +349,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManYellowHoodie.jpg" alt="Yellow Hoodie">
+                            <img src="assets/img/mens/ManYellowHoodie.jpg" alt="Yellow Hoodie">
                         </div>
                         <div class="product-name">
                             <label>Yellow Hoodie</label>
@@ -362,7 +362,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManDenimJacket2.jpg" alt="Denim Jacket">
+                            <img src="assets/img/mens/ManDenimJacket2.jpg" alt="Denim Jacket">
                         </div>
                         <div class="product-name">
                             <label>Denim Jacket</label>
@@ -375,7 +375,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManGreyDressShirt.jpg" alt="Grey Dress Shirt">
+                            <img src="assets/img/mens/ManGreyDressShirt.jpg" alt="Grey Dress Shirt">
                         </div>
                         <div class="product-name">
                             <label>Grey Dress Shirt</label>
@@ -388,7 +388,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManWhiteDressShirt.jpg" alt="White Dress Shirt">
+                            <img src="assets/img/mens/ManWhiteDressShirt.jpg" alt="White Dress Shirt">
                         </div>
                         <div class="product-name">
                             <label>White Dress Shirt</label>
@@ -401,7 +401,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManWhiteBlueShirt.jpg" alt="White-Blue Checkered Shirt">
+                            <img src="assets/img/mens/ManWhiteBlueShirt.jpg" alt="White-Blue Checkered Shirt">
                         </div>
                         <div class="product-name">
                             <label>White-Blue Checkered Shirt</label>
@@ -414,7 +414,7 @@
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="../../public/assets/img/mens/ManRedBlueShirt.jpg" alt="Red-Blue Checkered Shirt">
+                            <img src="assets/img/mens/ManRedBlueShirt.jpg" alt="Red-Blue Checkered Shirt">
                         </div>
                         <div class="product-name">
                             <label>Red-Blue Checkered Shirt</label>
