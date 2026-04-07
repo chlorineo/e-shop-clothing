@@ -79,7 +79,7 @@
             <div class="row text-center">
 
                 <div class="col-md-3">
-                    <a href="category.blade.php">
+                    <a href="{{ url('/category') }}">
                         <div class="category-box">
                             <img src="assets/img/HomePage/menClothing.jpg" alt="Men's">
                             <div class="category-text">Men's</div>
@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <a href="category.blade.php">
+                    <a href="{{ url('/category') }}">
                         <div class="category-box">
                             <img src="assets/img/HomePage/womenClothing.png" alt="Women's">
                             <div class="category-text">Women's</div>
@@ -97,7 +97,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <a href="category.blade.php">
+                    <a href="{{ url('/category') }}">
                         <div class="category-box">
                             <img src="assets/img/HomePage/unisex.jpg" alt="Unisex">
                             <div class="category-text">Unisex</div>
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <a href="category.blade.php">
+                    <a href="{{ url('/category') }}">
                         <div class="category-box">
                             <img src="assets/img/HomePage/accesories.jpg" alt="Accessories">
                             <div class="category-text">Accessories</div>
