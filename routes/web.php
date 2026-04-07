@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,7 +10,11 @@ Route::get('/', function () {
 });
 
 Route::get('/category', function () {
-    return view('category');
+    return view('category', [
+        'products' => Schema::hasTable('products')
+            ? Product::query()->orderBy('id')->get()
+            : collect(),
+    ]);
 });
 
 Route::get('/cart', function () {
