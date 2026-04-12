@@ -29,7 +29,9 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <section class="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center order-md-last ms-md-auto mt-4 mt-md-0">
-                    <form class="w-100"><input class="form-control" type="search" placeholder="Search..."></form>
+                    <form method="GET" action="{{ url('/category') }}" class="w-100">
+                        <input class="form-control" type="search" name="search" placeholder="Search..." aria-label="Search products">
+                    </form>
                     <div class="d-flex flex-column flex-md-row gap-3">
                         <a href="{{ url('dashboard') }}" class="text-body"><i class="bi bi-person fs-3"></i></a>
                         <a href="{{ url('/cart') }}" class="text-body"><i class="bi bi-bag fs-4"></i></a>
@@ -37,10 +39,10 @@
                 </section>
 
                 <ul class="navbar-nav gap-2 gap-md-0 mt-4 mt-md-0 ms-md-4">
-                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category') }}">Men's</a></li>
-                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category') }}">Women's</a></li>
-                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category') }}">Unisex</a></li>
-                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category') }}">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category?type=Mens') }}">Men's</a></li>
+                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category?type=Womans') }}">Women's</a></li>
+                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category?type=Unisex') }}">Unisex</a></li>
+                    <li class="nav-item"><a class="nav-link active fs-5" href="{{ url('/category?type=Accessories') }}">Accessories</a></li>
                 </ul>
             </div>
         </div>
