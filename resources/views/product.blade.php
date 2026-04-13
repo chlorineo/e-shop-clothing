@@ -12,6 +12,10 @@
             ->all();
         $sizeOptions = ['XS', 'S', 'M', 'L', 'XL'];
         $defaultSize = $availableSizes[0] ?? null;
+
+        $cart = session()->get('cart', []);
+        $cartKey = $product->id . '_' . ($defaultSize ?? 'none');
+        $cartQuantity = $cart[$cartKey]['quantity'] ?? 0;
     @endphp
 
     <main class="container-fluid my-5">
@@ -48,7 +52,10 @@
 
                     <p class="lh-base">{{ $product->description }}</p>
 
-                    <section class="mt-5">
+                    <form action="{{ route('cart.add') }}" method="POST" class="mt-5">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+
                         <div class="container-fluid btn-group">
                             @foreach ($sizeOptions as $size)
                                 @php
@@ -61,6 +68,7 @@
                                     class="btn-check"
                                     name="sizeOptions"
                                     id="{{ $inputId }}"
+                                    value="{{ $size }}"
                                     autocomplete="off"
                                     {{ $isAvailable ? '' : 'disabled' }}
                                     {{ $defaultSize === $size ? 'checked' : '' }}
@@ -69,10 +77,22 @@
                             @endforeach
                         </div>
 
-                        <div class="container-fluid mt-1 d-grid">
-                            <button type="button" class="btn btn-outline-secondary">Add To Cart</button>
+                        <div class="container-fluid mt-1">
+                            @if($cartQuantity == 0)
+                                <div class="d-grid">
+                                    <button type="submit" name="action" value="add" class="btn btn-outline-secondary">Add To Cart</button>
+                                </div>
+                            @else
+                                <div class="d-flex gap-2 w-100">
+                                    <div class="d-flex gap-2 mb-3 w-100">
+                                        <button type="submit" name="action" value="decrease" class="btn btn-outline-secondary" style="width: 20%;"><i class="bi bi-dash"></i></button>
+                                        <span type="text" class="form-control text-center" style="width: 60%;">{{ $cartQuantity }}</span>
+                                        <button type="submit" name="action" value="increase" class="btn btn-outline-secondary" style="width: 20%;"><i class="bi bi-plus"></i></button>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
-                    </section>
+                    </form>
                 </div>
             </div>
         </div>

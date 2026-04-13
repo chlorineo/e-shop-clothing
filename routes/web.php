@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use App\Models\Product;
 use App\Models\TagCategory;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
 Route::get('/', function () {
     return view('index');
