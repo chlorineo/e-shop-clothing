@@ -12,11 +12,13 @@
             ->all();
         $sizeOptions = ['XS', 'S', 'M', 'L', 'XL'];
         $defaultSize = $availableSizes[0] ?? null;
-
-        $cart = session()->get('cart', []);
-        $cartKey = $product->id . '_' . ($defaultSize ?? 'none');
-        $cartQuantity = $cart[$cartKey]['quantity'] ?? 0;
     @endphp
+
+    <style>
+        #quantity {
+            appearance: textfield;
+        }
+    </style>
 
     <main class="container-fluid my-5">
         <div class="row g-5">
@@ -77,24 +79,65 @@
                             @endforeach
                         </div>
 
-                        <div class="container-fluid mt-1">
-                            @if($cartQuantity == 0)
-                                <div class="d-grid">
-                                    <button type="submit" name="action" value="add" class="btn btn-outline-secondary">Add To Cart</button>
-                                </div>
-                            @else
-                                <div class="d-flex gap-2 w-100">
-                                    <div class="d-flex gap-2 mb-3 w-100">
-                                        <button type="submit" name="action" value="decrease" class="btn btn-outline-secondary" style="width: 20%;"><i class="bi bi-dash"></i></button>
-                                        <span type="text" class="form-control text-center" style="width: 60%;">{{ $cartQuantity }}</span>
-                                        <button type="submit" name="action" value="increase" class="btn btn-outline-secondary" style="width: 20%;"><i class="bi bi-plus"></i></button>
-                                    </div>
-                                </div>
-                            @endif
+                        <div class="container-fluid mt-3">
+                            <div class="d-flex gap-2 mb-3 w-100">
+                                <button type="button" class="btn btn-outline-secondary js-quantity-decrease" style="width: 20%;">
+                                    <i class="bi bi-dash"></i>
+                                </button>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    step="1"
+                                    value="1"
+                                    name="quantity"
+                                    id="quantity"
+                                    class="form-control text-center"
+                                    style="width: 60%;"
+                                    inputmode="numeric"
+                                >
+                                <button type="button" class="btn btn-outline-secondary js-quantity-increase" style="width: 20%;">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+
+                            <div class="d-grid w-100">
+                                <button type="submit" name="action" value="add" class="btn btn-outline-secondary">Add To Cart</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const quantityInput = document.getElementById('quantity');
+            const decreaseButton = document.querySelector('.js-quantity-decrease');
+            const increaseButton = document.querySelector('.js-quantity-increase');
+
+            if (!quantityInput || !decreaseButton || !increaseButton) {
+                return;
+            }
+
+            decreaseButton.addEventListener('click', function () {
+                const currentValue = Number(quantityInput.value) || 1;
+                quantityInput.value = Math.max(1, currentValue - 1);
+            });
+
+            increaseButton.addEventListener('click', function () {
+                const currentValue = Number(quantityInput.value) || 1;
+                quantityInput.value = currentValue + 1;
+            });
+
+            quantityInput.addEventListener('input', function () {
+                quantityInput.value = quantityInput.value.replace(/[^0-9]/g, '');
+            });
+
+            quantityInput.addEventListener('blur', function () {
+                const currentValue = Number(quantityInput.value);
+                quantityInput.value = currentValue >= 1 ? currentValue : 1;
+            });
+        });
+    </script>
 @endsection

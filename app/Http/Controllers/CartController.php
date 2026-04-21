@@ -10,6 +10,7 @@ class CartController {
         $productId = $request->input('product_id');
         $size = $request->input('sizeOptions');
         $action = $request->input('action', 'add');
+        $quantity = $request->input('quantity', 1);
 
         $cartKey = $productId . '_' . $size;
         $cart = session()->get('cart', []);
@@ -24,17 +25,23 @@ class CartController {
         elseif ($action === 'remove') {
             unset($cart[$cartKey]);
         }
-        else {
-            if (isset($cart[$cartKey]))
+        elseif ($action === 'increase') {
+            if (isset($cart[$cartKey])) {
                 $cart[$cartKey]['quantity']++;
+            }
+        }
+        else {
+            if (isset($cart[$cartKey])) {
+                $cart[$cartKey]['quantity'] += $quantity;
+            }
             else {
-                $product = Product::find($productId);
+                $product = Product::findOrFail($productId);
                 $image = $product->images->first();
 
                 $cart[$cartKey] = [
                     'id' => $productId,
                     'name' => $product->name,
-                    'quantity' => 1,
+                    'quantity' => $quantity,
                     'price' => $product->price,
                     'size' => $size,
                     'image' => $image ? $image->url : null
