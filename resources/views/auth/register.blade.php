@@ -21,13 +21,13 @@
                 @endif
 
                 <div class="mb-4">
-                    <p class="fs-4 mb-2">Name</p>
+                    <p class="fs-4 mb-2">Username</p>
                     <input
                         type="text"
                         name="name"
                         value="{{ old('name') }}"
                         class="form-control form-control-lg py-3 fs-5 @error('name') is-invalid @enderror"
-                        placeholder="John Doe"
+                        placeholder="Username..."
                         required
                         autofocus
                     >
