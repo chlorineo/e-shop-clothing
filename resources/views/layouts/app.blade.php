@@ -29,6 +29,15 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <section class="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center order-md-last ms-md-auto mt-4 mt-md-0">
+                    @auth
+                        @if (auth()->user()->is_admin)
+                            <a href="{{ route('admin-panel') }}" class="btn btn-outline-secondary d-flex align-items-center gap-2">
+                                <i class="bi bi-shield-lock"></i>
+                                Admin
+                            </a>
+                        @endif
+                    @endauth
+
                     <form method="GET" action="{{ url('/category') }}" class="w-100">
                         <input class="form-control" type="search" name="search" placeholder="Search..." aria-label="Search products">
                     </form>

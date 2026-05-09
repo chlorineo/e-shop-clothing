@@ -309,8 +309,9 @@
                     @endphp
 
                     <strong>Sort by:</strong>
-
+<!--
                     <button type="button" class="btn btn-light sort-btn" disabled>Highest Rated</button>
+-->
                     <a href="{{ url('/category?' . http_build_query([...$sortQueryBase, 'sort' => 'cheapest'])) }}" class="{{ $sortButtonClasses('cheapest') }}">Cheapest</a>
                     <a href="{{ url('/category?' . http_build_query([...$sortQueryBase, 'sort' => 'most_expensive'])) }}" class="{{ $sortButtonClasses('most_expensive') }}">Most Expensive</a>
                     <a href="{{ url('/category?' . http_build_query([...$sortQueryBase, 'sort' => 'newest'])) }}" class="{{ $sortButtonClasses('newest') }}">Newest</a>

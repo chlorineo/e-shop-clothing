@@ -1,14 +1,20 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Product;
+use App\Models\Tag;
 use App\Models\TagCategory;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+$ensureAdmin = static function (): void {
+    abort_unless(auth()->user()?->is_admin, 403);
+};
 
 Route::get('/', function () {
     return view('index');
@@ -130,6 +136,30 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
+Route::get('/admin-panel', function () use ($ensureAdmin) {
+    $ensureAdmin();
+
+    $searchText = trim((string) request()->input('search', ''));
+    $products = new LengthAwarePaginator([], 0, 20);
+    $nextProductId = 1;
+
+    if (Schema::hasTable('products')) {
+        $nextProductId = ((int) Product::query()->max('id')) + 1;
+        $products = Product::query()
+            ->with(['images', 'tags.category'])
+            ->matchingSearch($searchText)
+            ->orderBy('id')
+            ->paginate(20)
+            ->withQueryString();
+    }
+
+    return view('admin_panel', [
+        'products' => $products,
+        'searchText' => $searchText,
+        'nextProductId' => $nextProductId,
+    ]);
+})->middleware('auth')->name('admin-panel');
+
 Route::get('/product', function () {
     abort_unless(Schema::hasTable('products'), 404);
 
@@ -141,6 +171,147 @@ Route::get('/product', function () {
         'product' => $product,
     ]);
 });
+
+Route::get('/edit-item', function () use ($ensureAdmin) {
+    $ensureAdmin();
+
+    abort_unless(Schema::hasTable('products'), 404);
+
+    $requestedProductId = request()->integer('product') ?: (((int) Product::query()->max('id')) + 1);
+    $product = Product::query()
+        ->with(['tags.category', 'images'])
+        ->find($requestedProductId);
+
+    $isNewProduct = $product === null;
+
+    if ($isNewProduct) {
+        $product = new Product([
+            'name' => '',
+            'description' => '',
+            'price' => null,
+        ]);
+        $product->setAttribute('id', $requestedProductId);
+        $product->setRelation('images', new Collection);
+        $product->setRelation('tags', new Collection);
+    }
+
+    return view('edit_item', [
+        'product' => $product,
+        'isNewProduct' => $isNewProduct,
+    ]);
+})->middleware('auth')->name('products.edit-view');
+
+Route::patch('/edit-item', function () use ($ensureAdmin) {
+    $ensureAdmin();
+
+    abort_unless(Schema::hasTable('products'), 404);
+
+    $requestedProductId = request()->integer('product') ?: (((int) Product::query()->max('id')) + 1);
+    $product = Product::query()
+        ->with(['tags.category', 'images'])
+        ->find($requestedProductId);
+    $isNewProduct = $product === null;
+
+    $validated = request()->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'description' => ['nullable', 'string'],
+        'price' => ['required', 'numeric', 'min:0', 'max:999999.99'],
+        'tags' => ['nullable', 'string'],
+        'images' => ['nullable', 'array'],
+        'images.*.url' => ['required', 'string', 'max:255'],
+        'images.*.alt' => ['nullable', 'string', 'max:255'],
+        'new_images' => ['nullable', 'array'],
+        'new_images.*.url' => ['nullable', 'string', 'max:255'],
+        'new_images.*.alt' => ['nullable', 'string', 'max:255'],
+    ]);
+
+    $tagNames = collect(explode(',', (string) ($validated['tags'] ?? '')))
+        ->map(fn (string $tag): string => trim($tag))
+        ->filter()
+        ->unique()
+        ->values();
+
+    $tags = Tag::query()
+        ->whereIn('name', $tagNames)
+        ->get();
+
+    $missingTags = $tagNames
+        ->diff($tags->pluck('name'))
+        ->values();
+
+    if ($missingTags->isNotEmpty()) {
+        return back()
+            ->withErrors([
+                'tags' => 'Unknown tag(s): '.$missingTags->implode(', ').'. Use existing tags only.',
+            ])
+            ->withInput();
+    }
+
+    if ($isNewProduct) {
+        $product = new Product;
+        $product->setAttribute('id', $requestedProductId);
+        $product->fill([
+            'name' => $validated['name'],
+            'description' => $validated['description'] ?? '',
+            'price' => $validated['price'],
+        ]);
+        $product->save();
+        $product->setRelation('images', new Collection);
+    } else {
+        $product->update([
+            'name' => $validated['name'],
+            'description' => $validated['description'] ?? '',
+            'price' => $validated['price'],
+        ]);
+    }
+
+    $product->tags()->sync($tags->pluck('id')->all());
+
+    foreach ($validated['images'] ?? [] as $imageId => $imageData) {
+        $image = $product->images->firstWhere('id', (int) $imageId);
+
+        if ($image === null) {
+            continue;
+        }
+
+        $image->update([
+            'url' => $imageData['url'],
+            'alt' => $imageData['alt'] ?? $product->name,
+        ]);
+    }
+
+    $nextImagePosition = ((int) $product->images()->max('position')) + 1;
+
+    foreach ($validated['new_images'] ?? [] as $newImageData) {
+        $newImageUrl = trim((string) ($newImageData['url'] ?? ''));
+
+        if ($newImageUrl === '') {
+            continue;
+        }
+
+        $product->images()->create([
+            'url' => $newImageUrl,
+            'alt' => $newImageData['alt'] ?? $product->name,
+            'position' => $nextImagePosition,
+        ]);
+
+        $nextImagePosition++;
+    }
+
+    return redirect()
+        ->route('products.edit-view', ['product' => $product->id])
+        ->with('status', 'Product updated successfully.');
+})->middleware('auth')->name('products.update');
+
+Route::delete('/products/{product}', function (Product $product) use ($ensureAdmin) {
+    $ensureAdmin();
+
+    $product->delete();
+
+    return redirect()
+        ->route('admin-panel')
+        ->with('status', 'Product deleted successfully.');
+})->middleware('auth')->name('products.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
