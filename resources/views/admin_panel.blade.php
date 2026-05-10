@@ -53,10 +53,10 @@
                                 <div class="col-2">
                                     <p class="text-truncate mb-0">{{ $typeTag?->name ?? 'No type' }}</p>
                                 </div>
-                                <div class="col-1 text-center">
-                                    <p class="mb-0">{{ number_format((float) $product->price, 2, ',', ' ') }} €</p>
-                                </div>
                                 <div class="col-2 text-center">
+                                    <p class="mb-0 text-nowrap">{{ number_format((float) $product->price, 2, ',', ' ') }} €</p>
+                                </div>
+                                <div class="col-1 text-center">
                                     <p class="mb-0">{{ $product->tags->count() }} tags</p>
                                 </div>
                                 <div class="col-2">
