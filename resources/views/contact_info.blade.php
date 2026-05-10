@@ -49,7 +49,7 @@
                                 name="first_name"
                                 class="form-control form-control-lg py-3"
                                 placeholder="First Name..."
-                                value="{{ old('first_name', $contactData['first_name'] ?? $deliveryData['first_name'] ?? $user?->first_name) }}"
+                                value="{{ old('first_name', $contactData['first_name'] ?? $user?->first_name) }}"
                                 required
                             >
                         </div>
@@ -62,7 +62,7 @@
                                 name="last_name"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Last Name..."
-                                value="{{ old('last_name', $contactData['last_name'] ?? $deliveryData['last_name'] ?? $user?->last_name) }}"
+                                value="{{ old('last_name', $contactData['last_name'] ?? $user?->last_name) }}"
                                 required
                             >
                         </div>
@@ -75,7 +75,7 @@
                                 name="email"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Email..."
-                                value="{{ old('email', $contactData['email'] ?? $deliveryData['email'] ?? $user?->email) }}"
+                                value="{{ old('email', $contactData['email'] ?? $user?->email) }}"
                                 required
                             >
                         </div>
@@ -88,7 +88,7 @@
                                 name="phone"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Phone number..."
-                                value="{{ old('phone', $contactData['phone'] ?? $deliveryData['phone'] ?? $user?->phone) }}"
+                                value="{{ old('phone', $contactData['phone'] ?? $user?->phone) }}"
                                 required
                             >
                         </div>
@@ -101,7 +101,7 @@
                                 name="street"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Street and house number..."
-                                value="{{ old('street', $contactData['street'] ?? $deliveryData['street'] ?? $user?->street) }}"
+                                value="{{ old('street', $contactData['street'] ?? $user?->street) }}"
                                 required
                             >
                         </div>
@@ -114,7 +114,7 @@
                                 name="city"
                                 class="form-control form-control-lg py-3"
                                 placeholder="City..."
-                                value="{{ old('city', $contactData['city'] ?? $deliveryData['city'] ?? $user?->city) }}"
+                                value="{{ old('city', $contactData['city'] ?? $user?->city) }}"
                             >
                         </div>
 
@@ -126,7 +126,7 @@
                                 name="zip_code"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Postcode..."
-                                value="{{ old('zip_code', $contactData['zip_code'] ?? $deliveryData['zip_code'] ?? $user?->zip_code) }}"
+                                value="{{ old('zip_code', $contactData['zip_code'] ?? $user?->zip_code) }}"
                                 required
                             >
                         </div>
@@ -139,7 +139,7 @@
                                 name="country"
                                 class="form-control form-control-lg py-3"
                                 placeholder="Country..."
-                                value="{{ old('country', $contactData['country'] ?? $deliveryData['country'] ?? $user?->country) }}"
+                                value="{{ old('country', $contactData['country'] ?? $user?->country) }}"
                                 required
                             >
                         </div>
@@ -246,6 +246,16 @@
                 document.getElementById('city').value = "{{ $deliveryData['city'] ?? '' }}";
                 document.getElementById('zip_code').value = "{{ $deliveryData['zip_code'] ?? '' }}";
                 document.getElementById('country').value = "{{ $deliveryData['country'] ?? '' }}";
+            }
+            else {
+                document.getElementById('first_name').value = "{{ $user?->first_name ?? '' }}";
+                document.getElementById('last_name').value = "{{ $user?->last_name ?? '' }}";
+                document.getElementById('email').value = "{{ $user?->email ?? '' }}";
+                document.getElementById('phone').value = "{{ $user?->phone ?? '' }}";
+                document.getElementById('street').value = "{{ $user?->street ?? '' }}";
+                document.getElementById('city').value = "{{ $user?->city ?? '' }}";
+                document.getElementById('zip_code').value = "{{ $user?->zip_code ?? '' }}";
+                document.getElementById('country').value = "{{ $user?->country ?? '' }}";
             }
         });
     </script>
