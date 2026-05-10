@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Tag;
 use App\Models\TagCategory;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -23,7 +24,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'White T-Shirt', 'position' => 1],
                 ],
-                'tags' => ['White', 'Cotton', 'M', 'Mens'],
+                'tags' => ['White', 'Cotton', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Pink T-Shirt',
@@ -32,7 +33,18 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Pink T-Shirt', 'position' => 1],
                 ],
-                'tags' => ['Pink', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Pink', 'Cotton', 'Mens', 'S', 'M', 'L'],
+            ],
+            [
+                'name' => 'Pink Precision Graphic T-Shirt',
+                'description' => 'An oversized pink cotton T-shirt with a white contrast collar and bold front lettering.',
+                'price' => 24.99,
+                'images' => [
+                    ['url' => 'products/6a00a0c7b1cc1_bandar-baant-ZQqpq882kpk-unsplash.jpg', 'alt' => 'Pink Precision Graphic T-Shirt front view', 'position' => 1],
+                    ['url' => 'products/6a00a0c7b2ebc_bandar-baant-EfWgpl_bkYI-unsplash.jpg', 'alt' => 'Pink Precision Graphic T-Shirt side view', 'position' => 2],
+                    ['url' => 'products/6a00a0c7b3f6a_bandar-baant-9ldWUhmhQ98-unsplash.jpg', 'alt' => 'Pink Precision Graphic T-Shirt back view', 'position' => 3],
+                ],
+                'tags' => ['Pink', 'Cotton', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Gray T-Shirt',
@@ -41,7 +53,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Gray T-Shirt', 'position' => 1],
                 ],
-                'tags' => ['Gray', 'Cotton', 'L', 'Mens'],
+                'tags' => ['Gray', 'Cotton', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Dark Blue Suit',
@@ -50,7 +62,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Dark Blue Suit', 'position' => 1],
                 ],
-                'tags' => ['Dark Blue', 'Polyester', 'L', 'Mens'],
+                'tags' => ['Dark Blue', 'Polyester', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'Black Suit',
@@ -59,7 +71,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Black Suit', 'position' => 1],
                 ],
-                'tags' => ['Black', 'Polyester', 'L', 'Mens'],
+                'tags' => ['Black', 'Polyester', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'Red Dress Shirt',
@@ -68,7 +80,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'Red Dress Shirt', 'position' => 1],
                 ],
-                'tags' => ['Red', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Red', 'Cotton', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'Pink Dress Shirt',
@@ -77,7 +89,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'Pink Dress Shirt', 'position' => 1],
                 ],
-                'tags' => ['Pink', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Pink', 'Cotton', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Red Hoodie',
@@ -86,7 +98,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Red Hoodie', 'position' => 1],
                 ],
-                'tags' => ['Red', 'Cotton', 'L', 'Mens'],
+                'tags' => ['Red', 'Wool', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Denim Coat',
@@ -95,7 +107,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'Denim Coat', 'position' => 1],
                 ],
-                'tags' => ['Blue', 'Denim', 'L', 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Gray Jacket',
@@ -104,7 +116,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'Gray Jacket', 'position' => 1],
                 ],
-                'tags' => ['Gray', 'Wool', 'L', 'Mens'],
+                'tags' => ['Gray', 'Wool', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Beige Coat',
@@ -113,7 +125,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Beige Coat', 'position' => 1],
                 ],
-                'tags' => ['Beige', 'Linen', 'XL', 'Mens'],
+                'tags' => ['Beige', 'Linen', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'Denim Jeans',
@@ -122,7 +134,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Denim Jeans', 'position' => 1],
                 ],
-                'tags' => ['Blue', 'Denim', 'M', 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'Denim Jacket',
@@ -131,7 +143,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'Denim Jacket', 'position' => 1],
                 ],
-                'tags' => ['Blue', 'Denim', 'L', 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'Trousers',
@@ -140,7 +152,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'Trousers', 'position' => 1],
                 ],
-                'tags' => ['Gray', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Gray', 'Cotton', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Yellow Hoodie',
@@ -149,7 +161,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Yellow Hoodie', 'position' => 1],
                 ],
-                'tags' => ['Yellow', 'Cotton', 'L', 'Mens'],
+                'tags' => ['Yellow', 'Cotton', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Denim Jacket',
@@ -158,7 +170,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'Denim Jacket', 'position' => 1],
                 ],
-                'tags' => ['Blue', 'Denim', 'M', 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Grey Dress Shirt',
@@ -167,7 +179,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'Grey Dress Shirt', 'position' => 1],
                 ],
-                'tags' => ['Gray', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Gray', 'Cotton', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'White Dress Shirt',
@@ -176,7 +188,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'White Dress Shirt', 'position' => 1],
                 ],
-                'tags' => ['White', 'Cotton', 'L', 'Mens'],
+                'tags' => ['White', 'Cotton', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'White-Blue Checkered Shirt',
@@ -185,7 +197,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'White-Blue Checkered Shirt', 'position' => 1],
                 ],
-                'tags' => ['White', 'Blue', 'Cotton', 'M', 'Mens'],
+                'tags' => ['White', 'Blue', 'Cotton', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'Red-Blue Checkered Shirt',
@@ -194,7 +206,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'Red-Blue Checkered Shirt', 'position' => 1],
                 ],
-                'tags' => ['Red', 'Blue', 'Cotton', 'M', 'Mens'],
+                'tags' => ['Red', 'Blue', 'Cotton', 'Mens', 'S', 'M'],
             ],
 
             // Placeholders
@@ -205,7 +217,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Navy Oxford Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Dark Blue', 'Cotton', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Stone Chino Trousers',
@@ -214,7 +226,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Stone Chino Trousers', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Beige', 'Cotton', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Black Bomber Jacket',
@@ -223,7 +235,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Black Bomber Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Black', 'Polyester', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Red Crewneck Sweatshirt',
@@ -232,7 +244,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Red Crewneck Sweatshirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Red', 'Cotton', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Blue Straight Jeans',
@@ -241,7 +253,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Blue Straight Jeans', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'Gray Wool Overcoat',
@@ -250,7 +262,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'Gray Wool Overcoat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Wool',  2 => 'XL',  3 => 'Mens'],
+                'tags' => ['Gray', 'Wool', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'White Linen Shirt',
@@ -259,7 +271,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'White Linen Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Linen',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['White', 'Linen', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'Black Formal Trousers',
@@ -268,7 +280,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Black Formal Trousers', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Black', 'Polyester', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Yellow Graphic Hoodie',
@@ -277,7 +289,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'Yellow Graphic Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Yellow', 'Cotton', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Denim Overshirt',
@@ -286,7 +298,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'Blue Denim Overshirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'XL',  3 => 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Pink Casual Shirt',
@@ -295,7 +307,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Pink Casual Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Cotton',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Pink', 'Cotton', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Zip Hoodie',
@@ -304,7 +316,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Gray Zip Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Cotton',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Gray', 'Cotton', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'Dark Blue Tailored Blazer',
@@ -313,7 +325,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'Dark Blue Tailored Blazer', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Wool',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Dark Blue', 'Wool', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'White Tank Top',
@@ -322,7 +334,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'White Tank Top', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'S',  3 => 'Mens'],
+                'tags' => ['White', 'Cotton', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'Black Denim Jacket',
@@ -331,7 +343,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Black Denim Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Denim',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Black', 'Denim', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Beige Linen Trousers',
@@ -340,7 +352,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'Beige Linen Trousers', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Linen',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Beige', 'Linen', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Red Flannel Shirt',
@@ -349,7 +361,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'Red Flannel Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'XL',  3 => 'Mens'],
+                'tags' => ['Red', 'Linen', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Gray Training Tee',
@@ -358,7 +370,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'Gray Training Tee', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Polyester',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Gray', 'Polyester', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Blue Wool Cardigan',
@@ -367,7 +379,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'Blue Wool Cardigan', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Wool',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Blue', 'Wool', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'White Formal Shirt',
@@ -376,7 +388,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'White Formal Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['White', 'Cotton', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Utility Vest',
@@ -385,25 +397,25 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Black Utility Vest', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Black', 'Polyester', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Cotton Shorts',
                 'description' => '',
                 'price' => 26.99,
                 'images' => [
-                    ['url' => 'boots.jpg', 'alt' => 'Beige Cotton Shorts', 'position' => 1],
+                    ['url' => 'accessories/boots.jpg', 'alt' => 'Beige Cotton Shorts', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Beige', 'Cotton', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Dark Blue Cargo Pants',
                 'description' => '',
                 'price' => 58.99,
                 'images' => [
-                    ['url' => 'benjamin-szabo-3azXYMg-Y8o-unsplash.jpg', 'alt' => 'Dark Blue Cargo Pants', 'position' => 1],
+                    ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Dark Blue Cargo Pants', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'XL',  3 => 'Mens'],
+                'tags' => ['Dark Blue', 'Cotton', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Yellow Rain Jacket',
@@ -412,7 +424,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Yellow Rain Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Polyester',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Yellow', 'Polyester', 'Mens', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Blue Slim Jeans',
@@ -421,7 +433,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Blue Slim Jeans', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'S',  3 => 'Mens'],
+                'tags' => ['Blue', 'Denim', 'Mens', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Linen Shirt',
@@ -430,7 +442,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Gray Linen Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Linen',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Gray', 'Linen', 'Mens', 'XS', 'S'],
             ],
             [
                 'name' => 'Red Cotton Polo',
@@ -439,7 +451,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Red Cotton Polo', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['Red', 'Cotton', 'Mens', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Wool Coat',
@@ -448,7 +460,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Black Wool Coat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Wool',  2 => 'XL',  3 => 'Mens'],
+                'tags' => ['Black', 'Wool', 'Mens', 'S', 'M'],
             ],
             [
                 'name' => 'White Oversized Tee',
@@ -457,7 +469,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'White Oversized Tee', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'L',  3 => 'Mens'],
+                'tags' => ['White', 'Cotton', 'Mens', 'M', 'L'],
             ],
             [
                 'name' => 'Pink Summer Shirt',
@@ -466,7 +478,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'Pink Summer Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Linen',  2 => 'M',  3 => 'Mens'],
+                'tags' => ['Pink', 'Linen', 'Mens', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Wrap Dress',
@@ -475,7 +487,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Beige Wrap Dress', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Linen',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Beige', 'Linen', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'White Satin Blouse',
@@ -484,7 +496,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'White Satin Blouse', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Polyester',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['White', 'Polyester', 'Womans', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Pink Knit Cardigan',
@@ -493,7 +505,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'Pink Knit Cardigan', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Wool',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Pink', 'Wool', 'Womans', 'XS', 'S'],
             ],
             [
                 'name' => 'Black Pencil Skirt',
@@ -502,7 +514,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Black Pencil Skirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Black', 'Polyester', 'Womans', 'L', 'XL'],
             ],
             [
                 'name' => 'Blue Denim Midi Skirt',
@@ -511,7 +523,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Blue Denim Midi Skirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Blue', 'Denim', 'Womans', 'S', 'M'],
             ],
             [
                 'name' => 'Red Evening Dress',
@@ -520,7 +532,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'Red Evening Dress', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Polyester',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Red', 'Polyester', 'Womans', 'M', 'L'],
             ],
             [
                 'name' => 'Gray Wool Coat',
@@ -529,7 +541,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'Gray Wool Coat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Wool',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Gray', 'Wool', 'Womans', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Yellow Linen Top',
@@ -538,7 +550,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Yellow Linen Top', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Linen',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['Yellow', 'Linen', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Dark Blue Wide-Leg Trousers',
@@ -547,7 +559,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'Dark Blue Wide-Leg Trousers', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Dark Blue', 'Cotton', 'Womans', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'White Cotton Sundress',
@@ -556,7 +568,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'White Cotton Sundress', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['White', 'Cotton', 'Womans', 'XS', 'S'],
             ],
             [
                 'name' => 'Pink Pleated Skirt',
@@ -565,7 +577,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'Pink Pleated Skirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Polyester',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Pink', 'Polyester', 'Womans', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Denim Jacket',
@@ -574,7 +586,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'Black Denim Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Denim',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Black', 'Denim', 'Womans', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Trench Coat',
@@ -583,7 +595,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'Beige Trench Coat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'XL',  3 => 'Womans'],
+                'tags' => ['Beige', 'Cotton', 'Womans', 'M', 'L'],
             ],
             [
                 'name' => 'Blue Floral Blouse',
@@ -592,25 +604,25 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Blue Floral Blouse', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Cotton',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Blue', 'Cotton', 'Womans', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Gray Tailored Blazer',
                 'description' => '',
                 'price' => 92.99,
                 'images' => [
-                    ['url' => 'boots.jpg', 'alt' => 'Gray Tailored Blazer', 'position' => 1],
+                    ['url' => 'accessories/boots.jpg', 'alt' => 'Gray Tailored Blazer', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Wool',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Gray', 'Wool', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Red Cotton Top',
                 'description' => '',
                 'price' => 24.99,
                 'images' => [
-                    ['url' => 'benjamin-szabo-3azXYMg-Y8o-unsplash.jpg', 'alt' => 'Red Cotton Top', 'position' => 1],
+                    ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Red Cotton Top', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['Red', 'Cotton', 'Womans', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'White Linen Trousers',
@@ -619,7 +631,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'White Linen Trousers', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Linen',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['White', 'Linen', 'Womans', 'XS', 'S'],
             ],
             [
                 'name' => 'Black Evening Jumpsuit',
@@ -628,7 +640,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Black Evening Jumpsuit', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Black', 'Polyester', 'Womans', 'L', 'XL'],
             ],
             [
                 'name' => 'Pink Wool Sweater',
@@ -637,7 +649,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Pink Wool Sweater', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Wool',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Pink', 'Wool', 'Womans', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Skinny Jeans',
@@ -646,7 +658,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Blue Skinny Jeans', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Blue', 'Denim', 'Womans', 'M', 'L'],
             ],
             [
                 'name' => 'Yellow Summer Dress',
@@ -655,7 +667,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Yellow Summer Dress', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['Yellow', 'Cotton', 'Womans', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Knit Vest',
@@ -664,7 +676,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'Beige Knit Vest', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Wool',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Beige', 'Wool', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Dark Blue Shirt Dress',
@@ -673,7 +685,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'Dark Blue Shirt Dress', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Dark Blue', 'Cotton', 'Womans', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Lounge Pants',
@@ -682,7 +694,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Gray Lounge Pants', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Cotton',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Gray', 'Cotton', 'Womans', 'XS', 'S'],
             ],
             [
                 'name' => 'Red Linen Blazer',
@@ -691,7 +703,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'Red Linen Blazer', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Linen',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Red', 'Linen', 'Womans', 'L', 'XL'],
             ],
             [
                 'name' => 'White Lace Top',
@@ -700,7 +712,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'White Lace Top', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['White', 'Cotton', 'Womans', 'S', 'M'],
             ],
             [
                 'name' => 'Black Wool Midi Dress',
@@ -709,7 +721,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Black Wool Midi Dress', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Wool',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Black', 'Wool', 'Womans', 'M', 'L'],
             ],
             [
                 'name' => 'Pink Cotton Hoodie',
@@ -718,7 +730,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Pink Cotton Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Cotton',  2 => 'L',  3 => 'Womans'],
+                'tags' => ['Pink', 'Cotton', 'Womans', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Linen Shorts',
@@ -727,7 +739,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'Blue Linen Shorts', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Linen',  2 => 'S',  3 => 'Womans'],
+                'tags' => ['Blue', 'Linen', 'Womans', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Beige Cropped Jacket',
@@ -736,7 +748,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'Beige Cropped Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Polyester',  2 => 'M',  3 => 'Womans'],
+                'tags' => ['Beige', 'Polyester', 'Womans', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Oversized Hoodie',
@@ -745,7 +757,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Black Oversized Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Cotton',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Black', 'Cotton', 'Unisex', 'XS', 'S'],
             ],
             [
                 'name' => 'White Logo T-Shirt',
@@ -754,7 +766,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'White Logo T-Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['White', 'Cotton', 'Unisex', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Relaxed Sweatshirt',
@@ -763,7 +775,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'Gray Relaxed Sweatshirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Cotton',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Gray', 'Cotton', 'Unisex', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Denim Utility Jacket',
@@ -772,7 +784,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'Blue Denim Utility Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Blue', 'Denim', 'Unisex', 'M', 'L'],
             ],
             [
                 'name' => 'Red Track Pants',
@@ -781,7 +793,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'Red Track Pants', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Polyester',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Red', 'Polyester', 'Unisex', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Yellow Windbreaker',
@@ -790,7 +802,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'Yellow Windbreaker', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Polyester',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Yellow', 'Polyester', 'Unisex', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Beige Cargo Vest',
@@ -799,25 +811,25 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Beige Cargo Vest', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Beige', 'Cotton', 'Unisex', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Dark Blue Crewneck',
                 'description' => '',
                 'price' => 39.99,
                 'images' => [
-                    ['url' => 'boots.jpg', 'alt' => 'Dark Blue Crewneck', 'position' => 1],
+                    ['url' => 'accessories/boots.jpg', 'alt' => 'Dark Blue Crewneck', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'XL',  3 => 'Unisex'],
+                'tags' => ['Dark Blue', 'Cotton', 'Unisex', 'XS', 'S'],
             ],
             [
                 'name' => 'Pink Boxy Tee',
                 'description' => '',
                 'price' => 22.99,
                 'images' => [
-                    ['url' => 'benjamin-szabo-3azXYMg-Y8o-unsplash.jpg', 'alt' => 'Pink Boxy Tee', 'position' => 1],
+                    ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Pink Boxy Tee', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Cotton',  2 => 'S',  3 => 'Unisex'],
+                'tags' => ['Pink', 'Cotton', 'Unisex', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Cargo Pants',
@@ -826,7 +838,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Black Cargo Pants', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Cotton',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Black', 'Cotton', 'Unisex', 'S', 'M'],
             ],
             [
                 'name' => 'White Linen Overshirt',
@@ -835,7 +847,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'White Linen Overshirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Linen',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['White', 'Linen', 'Unisex', 'M', 'L'],
             ],
             [
                 'name' => 'Gray Wool Beanie Set',
@@ -844,7 +856,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Gray Wool Beanie Set', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Wool',  2 => 'S',  3 => 'Unisex'],
+                'tags' => ['Gray', 'Wool', 'Unisex', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Relaxed Jeans',
@@ -853,7 +865,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Blue Relaxed Jeans', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Blue', 'Denim', 'Unisex', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Red Plaid Overshirt',
@@ -862,7 +874,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Red Plaid Overshirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Red', 'Cotton', 'Unisex', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Beige Sweat Shorts',
@@ -871,7 +883,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'Beige Sweat Shorts', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Beige', 'Cotton', 'Unisex', 'XS', 'S'],
             ],
             [
                 'name' => 'Dark Blue Raincoat',
@@ -880,7 +892,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'Dark Blue Raincoat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Polyester',  2 => 'XL',  3 => 'Unisex'],
+                'tags' => ['Dark Blue', 'Polyester', 'Unisex', 'L', 'XL'],
             ],
             [
                 'name' => 'Yellow Graphic Tee',
@@ -889,7 +901,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Yellow Graphic Tee', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Yellow', 'Cotton', 'Unisex', 'S', 'M'],
             ],
             [
                 'name' => 'Black Fleece Jacket',
@@ -898,7 +910,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'Black Fleece Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Black', 'Polyester', 'Unisex', 'M', 'L'],
             ],
             [
                 'name' => 'White Wide-Leg Pants',
@@ -907,7 +919,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'White Wide-Leg Pants', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['White', 'Cotton', 'Unisex', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Gray Denim Shirt',
@@ -916,7 +928,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Gray Denim Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Denim',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Gray', 'Denim', 'Unisex', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Pink Sweatpants',
@@ -925,7 +937,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Pink Sweatpants', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Cotton',  2 => 'S',  3 => 'Unisex'],
+                'tags' => ['Pink', 'Cotton', 'Unisex', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Blue Quilted Vest',
@@ -934,7 +946,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'Blue Quilted Vest', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Polyester',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Blue', 'Polyester', 'Unisex', 'XS', 'S'],
             ],
             [
                 'name' => 'Red Pullover Hoodie',
@@ -943,7 +955,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'Red Pullover Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'XL',  3 => 'Unisex'],
+                'tags' => ['Red', 'Cotton', 'Unisex', 'L', 'XL'],
             ],
             [
                 'name' => 'Beige Linen Shirt',
@@ -952,7 +964,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Beige Linen Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Linen',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Beige', 'Linen', 'Unisex', 'S', 'M'],
             ],
             [
                 'name' => 'Black Minimal Tee',
@@ -961,7 +973,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'Black Minimal Tee', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Black', 'Cotton', 'Unisex', 'M', 'L'],
             ],
             [
                 'name' => 'White Cotton Hoodie',
@@ -970,7 +982,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'White Cotton Hoodie', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['White', 'Cotton', 'Unisex', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Gray Tech Jacket',
@@ -979,7 +991,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'Gray Tech Jacket', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Polyester',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Gray', 'Polyester', 'Unisex', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Blue Everyday Shorts',
@@ -988,7 +1000,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'Blue Everyday Shorts', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Cotton',  2 => 'S',  3 => 'Unisex'],
+                'tags' => ['Blue', 'Cotton', 'Unisex', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Yellow Knit Sweater',
@@ -997,7 +1009,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'Yellow Knit Sweater', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Wool',  2 => 'L',  3 => 'Unisex'],
+                'tags' => ['Yellow', 'Wool', 'Unisex', 'XS', 'S'],
             ],
             [
                 'name' => 'Dark Blue Utility Shirt',
@@ -1006,25 +1018,25 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Dark Blue Utility Shirt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Cotton',  2 => 'M',  3 => 'Unisex'],
+                'tags' => ['Dark Blue', 'Cotton', 'Unisex', 'L', 'XL'],
             ],
             [
                 'name' => 'Black Leather Belt',
                 'description' => '',
                 'price' => 24.99,
                 'images' => [
-                    ['url' => 'boots.jpg', 'alt' => 'Black Leather Belt', 'position' => 1],
+                    ['url' => 'accessories/boots.jpg', 'alt' => 'Black Leather Belt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Black', 'Cotton', 'Accessories', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Canvas Tote',
                 'description' => '',
                 'price' => 29.99,
                 'images' => [
-                    ['url' => 'benjamin-szabo-3azXYMg-Y8o-unsplash.jpg', 'alt' => 'Beige Canvas Tote', 'position' => 1],
+                    ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Beige Canvas Tote', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Beige', 'Cotton', 'Accessories', 'M', 'L'],
             ],
             [
                 'name' => 'Gray Wool Scarf',
@@ -1033,7 +1045,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Gray Wool Scarf', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Wool',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Gray', 'Wool', 'Accessories', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Blue Denim Cap',
@@ -1042,7 +1054,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Blue Denim Cap', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Denim',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Blue', 'Denim', 'Accessories', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Red Knit Beanie',
@@ -1051,7 +1063,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Red Knit Beanie', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Wool',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Red', 'Wool', 'Accessories', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'White Cotton Socks',
@@ -1060,7 +1072,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'White Cotton Socks', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['White', 'Cotton', 'Accessories', 'XS', 'S'],
             ],
             [
                 'name' => 'Yellow Bucket Hat',
@@ -1069,7 +1081,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Yellow Bucket Hat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Yellow', 'Cotton', 'Accessories', 'L', 'XL'],
             ],
             [
                 'name' => 'Dark Blue Backpack',
@@ -1078,7 +1090,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDressShirtRed.jpg', 'alt' => 'Dark Blue Backpack', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Polyester',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Dark Blue', 'Polyester', 'Accessories', 'S', 'M'],
             ],
             [
                 'name' => 'Pink Hair Scarf',
@@ -1087,7 +1099,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/DressShirtPink.jpg', 'alt' => 'Pink Hair Scarf', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Polyester',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Pink', 'Polyester', 'Accessories', 'M', 'L'],
             ],
             [
                 'name' => 'Black Crossbody Bag',
@@ -1096,7 +1108,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedHoodie.jpg', 'alt' => 'Black Crossbody Bag', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Black', 'Polyester', 'Accessories', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Beige Wool Gloves',
@@ -1105,7 +1117,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimCoat.jpg', 'alt' => 'Beige Wool Gloves', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Wool',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Beige', 'Wool', 'Accessories', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Blue Canvas Wallet',
@@ -1114,7 +1126,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGrayJacket.jpg', 'alt' => 'Blue Canvas Wallet', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Cotton',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Blue', 'Cotton', 'Accessories', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Travel Pouch',
@@ -1123,7 +1135,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManBeigeCoat.jpg', 'alt' => 'Gray Travel Pouch', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Polyester',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Gray', 'Polyester', 'Accessories', 'XS', 'S'],
             ],
             [
                 'name' => 'Red Canvas Belt',
@@ -1132,7 +1144,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJeans1.jpg', 'alt' => 'Red Canvas Belt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Red', 'Cotton', 'Accessories', 'L', 'XL'],
             ],
             [
                 'name' => 'White Linen Bandana',
@@ -1141,7 +1153,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket.jpg', 'alt' => 'White Linen Bandana', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Linen',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['White', 'Linen', 'Accessories', 'S', 'M'],
             ],
             [
                 'name' => 'Black Wool Hat',
@@ -1150,7 +1162,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTrousers.png', 'alt' => 'Black Wool Hat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Wool',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Black', 'Wool', 'Accessories', 'M', 'L'],
             ],
             [
                 'name' => 'Yellow Mini Tote',
@@ -1159,7 +1171,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManYellowHoodie.jpg', 'alt' => 'Yellow Mini Tote', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Yellow', 'Cotton', 'Accessories', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Dark Blue Duffel Bag',
@@ -1168,7 +1180,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManDenimJacket2.jpg', 'alt' => 'Dark Blue Duffel Bag', 'position' => 1],
                 ],
-                'tags' => [0 => 'Dark Blue',  1 => 'Polyester',  2 => 'XL',  3 => 'Accessories'],
+                'tags' => ['Dark Blue', 'Polyester', 'Accessories', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Pink Cotton Socks',
@@ -1177,7 +1189,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManGreyDressShirt.jpg', 'alt' => 'Pink Cotton Socks', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Cotton',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Pink', 'Cotton', 'Accessories', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Beige Straw-Style Hat',
@@ -1186,7 +1198,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteDressShirt.jpg', 'alt' => 'Beige Straw-Style Hat', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Linen',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Beige', 'Linen', 'Accessories', 'XS', 'S'],
             ],
             [
                 'name' => 'Gray Laptop Sleeve',
@@ -1195,7 +1207,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManWhiteBlueShirt.jpg', 'alt' => 'Gray Laptop Sleeve', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Polyester',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Gray', 'Polyester', 'Accessories', 'L', 'XL'],
             ],
             [
                 'name' => 'Blue Knit Scarf',
@@ -1204,7 +1216,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManRedBlueShirt.jpg', 'alt' => 'Blue Knit Scarf', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Wool',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Blue', 'Wool', 'Accessories', 'S', 'M'],
             ],
             [
                 'name' => 'Red Sport Bag',
@@ -1213,25 +1225,25 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'womens/beigeWomenTop.jpg', 'alt' => 'Red Sport Bag', 'position' => 1],
                 ],
-                'tags' => [0 => 'Red',  1 => 'Polyester',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Red', 'Polyester', 'Accessories', 'M', 'L'],
             ],
             [
                 'name' => 'White Canvas Cap',
                 'description' => '',
                 'price' => 18.99,
                 'images' => [
-                    ['url' => 'boots.jpg', 'alt' => 'White Canvas Cap', 'position' => 1],
+                    ['url' => 'accessories/boots.jpg', 'alt' => 'White Canvas Cap', 'position' => 1],
                 ],
-                'tags' => [0 => 'White',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['White', 'Cotton', 'Accessories', 'XS', 'S', 'M'],
             ],
             [
                 'name' => 'Black Boot Pair',
                 'description' => '',
                 'price' => 89.99,
                 'images' => [
-                    ['url' => 'benjamin-szabo-3azXYMg-Y8o-unsplash.jpg', 'alt' => 'Black Boot Pair', 'position' => 1],
+                    ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Black Boot Pair', 'position' => 1],
                 ],
-                'tags' => [0 => 'Black',  1 => 'Polyester',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Black', 'Polyester', 'Accessories', 'S', 'M', 'L'],
             ],
             [
                 'name' => 'Beige Drawstring Bag',
@@ -1240,7 +1252,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtWhite.jpg', 'alt' => 'Beige Drawstring Bag', 'position' => 1],
                 ],
-                'tags' => [0 => 'Beige',  1 => 'Cotton',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Beige', 'Cotton', 'Accessories', 'M', 'L', 'XL'],
             ],
             [
                 'name' => 'Gray Everyday Belt',
@@ -1249,7 +1261,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtPink.jpg', 'alt' => 'Gray Everyday Belt', 'position' => 1],
                 ],
-                'tags' => [0 => 'Gray',  1 => 'Polyester',  2 => 'M',  3 => 'Accessories'],
+                'tags' => ['Gray', 'Polyester', 'Accessories', 'XS', 'S'],
             ],
             [
                 'name' => 'Blue Pattern Scarf',
@@ -1258,7 +1270,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManTshirtGray.jpg', 'alt' => 'Blue Pattern Scarf', 'position' => 1],
                 ],
-                'tags' => [0 => 'Blue',  1 => 'Wool',  2 => 'L',  3 => 'Accessories'],
+                'tags' => ['Blue', 'Wool', 'Accessories', 'L', 'XL'],
             ],
             [
                 'name' => 'Yellow Canvas Wallet',
@@ -1267,7 +1279,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitDarkBlue.jpg', 'alt' => 'Yellow Canvas Wallet', 'position' => 1],
                 ],
-                'tags' => [0 => 'Yellow',  1 => 'Cotton',  2 => 'S',  3 => 'Accessories'],
+                'tags' => ['Yellow', 'Cotton', 'Accessories', 'S', 'M'],
             ],
             [
                 'name' => 'Pink Weekend Bag',
@@ -1276,7 +1288,7 @@ class ProductSeeder extends Seeder
                 'images' => [
                     ['url' => 'mens/ManSuitBlack.jpg', 'alt' => 'Pink Weekend Bag', 'position' => 1],
                 ],
-                'tags' => [0 => 'Pink',  1 => 'Polyester',  2 => 'XL',  3 => 'Accessories'],
+                'tags' => ['Pink', 'Polyester', 'Accessories', 'M', 'L'],
             ],
         ];
 
@@ -1309,12 +1321,19 @@ class ProductSeeder extends Seeder
             }
         }
 
-        foreach ($catalog as $productData) {
+        $newestProductDate = CarbonImmutable::parse('2022-05-10 12:00:00');
+
+        foreach ($catalog as $productIndex => $productData) {
             $product = Product::query()->create([
                 'name' => $productData['name'],
                 'description' => $productData['description'],
                 'price' => $productData['price'],
             ]);
+
+            $product->forceFill([
+                'created_at' => $newestProductDate->addDays($productIndex),
+                'updated_at' => $newestProductDate->addDays($productIndex),
+            ])->save();
 
             $product->images()->createMany($productData['images']);
 
