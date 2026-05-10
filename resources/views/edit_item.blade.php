@@ -14,6 +14,8 @@
             ->implode(', ');
         $formTagText = old('tags', $tagText);
         $newImages = old('new_images', []);
+        $typeTag = $product->tags->first(fn ($tag) => $tag->category?->name === 'Type');
+        $selectedCategory = old('category', $typeTag?->name ?? '');
     @endphp
 
     <main class="container-fluid my-5">
@@ -48,110 +50,57 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('products.update', ['product' => $product->id]) }}">
+            <form
+                method="POST"
+                action="{{ route('products.update', ['product' => $product->id]) }}"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
 
                 <p class="fs-4 mb-3">Photos</p>
-                <div class="d-flex gap-3 mb-5 flex-wrap">
-                    @forelse ($productImages as $image)
-                        <div class="ratio ratio-1x1 border bg-light rounded me-1" style="width: 100px;">
-                            <img src="{{ asset('assets/img/' . $image->url) }}" alt="{{ $image->alt }}" class="object-fit-contain rounded">
-                        </div>
-                    @empty
-                        <div class="ratio ratio-1x1 border bg-light rounded me-1" style="width: 100px;">
-                            <div class="d-flex align-items-center justify-content-center text-muted">
-                                <i class="bi bi-image fs-2"></i>
-                            </div>
-                        </div>
-                    @endforelse
+                <div id="image-container" class="d-flex gap-3 mb-5 flex-wrap">
+                    @foreach ($productImages as $image)
+                        <div class="ratio ratio-1x1 border bg-light rounded me-1 position-relative" style="width: 100px;">
+                            <img
+                                src="{{ asset('assets/img/' . $image->url) }}"
+                                alt="{{ $image->alt }}"
+                                class="object-fit-contain rounded"
+                                id="img-{{ $image->id }}"
+                            >
 
-                    <div class="ratio ratio-1x1 border bg-light rounded" style="width: 100px;">
-                        <button
-                            type="button"
-                            id="add-image-button"
-                            class="btn btn-outline-secondary w-100 h-100 d-flex align-items-center justify-content-center"
-                            title="Add photo"
-                            aria-label="Add photo"
-                        >
-                            <i class="bi bi-plus fs-2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                @if ($productImages->isNotEmpty())
-                    <div class="mb-5">
-                        @foreach ($productImages as $image)
-                            <div class="border rounded p-3 mb-3">
-                                <p class="fw-semibold mb-3">Photo {{ $loop->iteration }}</p>
-
-                                <div class="mb-3">
-                                    <label for="image-url-{{ $image->id }}" class="form-label">Image path</label>
-                                    <input
-                                        type="text"
-                                        id="image-url-{{ $image->id }}"
-                                        name="images[{{ $image->id }}][url]"
-                                        class="form-control @error('images.' . $image->id . '.url') is-invalid @enderror"
-                                        value="{{ old('images.' . $image->id . '.url', $image->url) }}"
-                                        required
-                                    >
-                                    @error('images.' . $image->id . '.url')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-
-                                <div>
-                                    <label for="image-alt-{{ $image->id }}" class="form-label">Alt text</label>
-                                    <input
-                                        type="text"
-                                        id="image-alt-{{ $image->id }}"
-                                        name="images[{{ $image->id }}][alt]"
-                                        class="form-control @error('images.' . $image->id . '.alt') is-invalid @enderror"
-                                        value="{{ old('images.' . $image->id . '.alt', $image->alt) }}"
-                                    >
-                                    @error('images.' . $image->id . '.alt')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-
-                <div id="new-image-fields" class="mb-5">
-                    @foreach ($newImages as $newImageIndex => $newImage)
-                        <div class="border rounded p-3 mb-3">
-                            <p class="fw-semibold mb-3">New photo {{ $loop->iteration }}</p>
-
-                            <div class="mb-3">
-                                <label for="new-image-url-{{ $newImageIndex }}" class="form-label">Image path</label>
-                                <input
-                                    type="text"
-                                    id="new-image-url-{{ $newImageIndex }}"
-                                    name="new_images[{{ $newImageIndex }}][url]"
-                                    class="form-control @error('new_images.' . $newImageIndex . '.url') is-invalid @enderror"
-                                    value="{{ data_get($newImage, 'url') }}"
-                                >
-                                @error('new_images.' . $newImageIndex . '.url')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div>
-                                <label for="new-image-alt-{{ $newImageIndex }}" class="form-label">Alt text</label>
-                                <input
-                                    type="text"
-                                    id="new-image-alt-{{ $newImageIndex }}"
-                                    name="new_images[{{ $newImageIndex }}][alt]"
-                                    class="form-control @error('new_images.' . $newImageIndex . '.alt') is-invalid @enderror"
-                                    value="{{ data_get($newImage, 'alt') }}"
-                                >
-                                @error('new_images.' . $newImageIndex . '.alt')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            <input
+                                type="checkbox"
+                                id="delete-{{ $image->id }}"
+                                name="delete_images[]"
+                                class="btn-check delete-checkbox"
+                                value="{{ $image->id }}"
+                            >
+                            <label
+                                class="rounded-circle position-absolute top-0 end-0 m-1 text-white bg-secondary bg-opacity-75 d-flex align-items-center justify-content-center"
+                                for="delete-{{ $image->id }}"
+                                style="width: 15px; height: 15px"
+                            >
+                                <i class="bi bi-x"></i>
+                            </label>
                         </div>
                     @endforeach
+
+                    <div class="ratio ratio-1x1 border bg-light rounded" style="width: 100px;">
+                        <label
+                            for="new_images"
+                            class="w-100 h-100 d-flex align-items-center justify-content-center m-0"
+                            title="Add photo"
+                        >
+                            <i class="bi bi-plus fs-2 text-secondary"></i>
+                        </label>
+                        <input
+                            type="file"
+                            id="new_images"
+                            name="new_images[]"
+                            multiple class="d-none"
+                            accept="image/*"
+                        >
+                    </div>
                 </div>
 
                 <div class="mb-4">
@@ -200,6 +149,25 @@
                     @enderror
                 </div>
 
+                <div class="mb-4">
+                    <label for="category" class="fs-4 mb-2">Category</label>
+                    <select
+                        id="category"
+                        name="category"
+                        class="form-select form-select-lg fs-5 @error('category') is-invalid @enderror"
+                        required
+                    >
+                        <option value="" disabled {{ $selectedCategory === '' ? 'selected' : '' }}>Select category...</option>
+                        <option value="Mens" {{ $selectedCategory === 'Mens' ? 'selected' : '' }}>Men's</option>
+                        <option value="Womans" {{ $selectedCategory === 'Womans' ? 'selected' : '' }}>Women's</option>
+                        <option value="Unisex" {{ $selectedCategory === 'Unisex' ? 'selected' : '' }}>Unisex</option>
+                        <option value="Accessories" {{ $selectedCategory === 'Accessories' ? 'selected' : '' }}>Accessories</option>
+                    </select>
+                    @error('category')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="mb-5">
                     <label for="tags" class="fs-4 mb-2">Tags</label>
                     <input
@@ -236,49 +204,53 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const addImageButton = document.getElementById('add-image-button');
-            const newImageFields = document.getElementById('new-image-fields');
-
-            if (!addImageButton || !newImageFields) {
-                return;
-            }
-
-            let nextImageIndex = {{ count($newImages) }};
-
-            addImageButton.addEventListener('click', function () {
-                const imageIndex = nextImageIndex;
-                nextImageIndex++;
-
-                const fieldGroup = document.createElement('div');
-                fieldGroup.className = 'border rounded p-3 mb-3';
-                fieldGroup.innerHTML = `
-                    <p class="fw-semibold mb-3">New photo ${imageIndex + 1}</p>
-
-                    <div class="mb-3">
-                        <label for="new-image-url-${imageIndex}" class="form-label">Image path</label>
-                        <input
-                            type="text"
-                            id="new-image-url-${imageIndex}"
-                            name="new_images[${imageIndex}][url]"
-                            class="form-control"
-                        >
-                    </div>
-
-                    <div>
-                        <label for="new-image-alt-${imageIndex}" class="form-label">Alt text</label>
-                        <input
-                            type="text"
-                            id="new-image-alt-${imageIndex}"
-                            name="new_images[${imageIndex}][alt]"
-                            class="form-control"
-                        >
-                    </div>
-                `;
-
-                newImageFields.appendChild(fieldGroup);
-                fieldGroup.querySelector('input')?.focus();
+        document.querySelectorAll('.delete-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    this.parentElement.style.display = 'none';
+                }
             });
+        });
+
+        let dt = new DataTransfer();
+
+        document.getElementById('new_images').addEventListener('change', function(event) {
+            const container = document.getElementById('image-container');
+            const addButton = container.lastElementChild;
+
+            Array.from(event.target.files).forEach(file => {
+                dt.items.add(file);
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const div = document.createElement('div');
+                    div.className = 'ratio ratio-1x1 border bg-light rounded me-1 position-relative';
+                    div.style.width = '100px';
+                    div.innerHTML = `
+                        <img src="${e.target.result}" class="object-fit-contain rounded">
+                        <div
+                            class="rounded-circle position-absolute top-0 end-0 m-1 text-white bg-secondary bg-opacity-75 d-flex align-items-center justify-content-center"
+                            style="width: 15px; height: 15px">
+                            <i class="bi bi-x"></i>
+                        </div>
+                    `;
+
+                    div.querySelector('div.position-absolute').addEventListener('click', function () {
+                        div.remove();
+
+                        const newDt = new DataTransfer();
+                        Array.from(dt.files).forEach(f => {
+                            if (f !== file) newDt.items.add(f);
+                        });
+                        dt = newDt;
+                        document.getElementById('new_images').files = dt.files;
+                    });
+                    container.insertBefore(div, addButton);
+                }
+                reader.readAsDataURL(file);
+            });
+
+            this.files = dt.files;
         });
     </script>
 @endsection

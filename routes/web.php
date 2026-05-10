@@ -228,18 +228,17 @@ Route::patch('/edit-item', function () use ($ensureAdmin) {
         'name' => ['required', 'string', 'max:255'],
         'description' => ['nullable', 'string'],
         'price' => ['required', 'numeric', 'min:0', 'max:999999.99'],
+        'category' => ['required', 'string'],
         'tags' => ['nullable', 'string'],
-        'images' => ['nullable', 'array'],
-        'images.*.url' => ['required', 'string', 'max:255'],
-        'images.*.alt' => ['nullable', 'string', 'max:255'],
+        'delete_images' => ['nullable', 'array'],
         'new_images' => ['nullable', 'array'],
-        'new_images.*.url' => ['nullable', 'string', 'max:255'],
-        'new_images.*.alt' => ['nullable', 'string', 'max:255'],
+        'new_images.*' => ['image', 'mimes:jpeg,png,jpg,webp', 'max:2048']
     ]);
 
     $tagNames = collect(explode(',', (string) ($validated['tags'] ?? '')))
         ->map(fn (string $tag): string => trim($tag))
         ->filter()
+        ->push($validated['category'])
         ->unique()
         ->values();
 
@@ -279,44 +278,55 @@ Route::patch('/edit-item', function () use ($ensureAdmin) {
 
     $product->tags()->sync($tags->pluck('id')->all());
 
-    foreach ($validated['images'] ?? [] as $imageId => $imageData) {
+    foreach ($validated['delete_images'] ?? [] as $imageId) {
         $image = $product->images->firstWhere('id', (int) $imageId);
 
-        if ($image === null) {
-            continue;
+        if ($image !== null) {
+            $filePath = public_path('assets/img/' . $image->url);
+            if (file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+            $image->delete();
         }
-
-        $image->update([
-            'url' => $imageData['url'],
-            'alt' => $imageData['alt'] ?? $product->name,
-        ]);
     }
 
     $nextImagePosition = ((int) $product->images()->max('position')) + 1;
 
-    foreach ($validated['new_images'] ?? [] as $newImageData) {
-        $newImageUrl = trim((string) ($newImageData['url'] ?? ''));
+    if (request()->hasFile('new_images')) {
+        $uploadPath = public_path('assets/img/products');
 
-        if ($newImageUrl === '') {
-            continue;
+        if (!file_exists($uploadPath)) {
+            mkdir($uploadPath, 0777, true);
         }
 
-        $product->images()->create([
-            'url' => $newImageUrl,
-            'alt' => $newImageData['alt'] ?? $product->name,
-            'position' => $nextImagePosition,
-        ]);
+        foreach (request()->file('new_images') as $file) {
+            $filename = uniqid() . '_' . $file->getClientOriginalName();
+            $file->move($uploadPath, $filename);
 
-        $nextImagePosition++;
+            $product->images()->create([
+                'url' => 'products/' . $filename,
+                'alt' => $product->name,
+                'position' => $nextImagePosition,
+            ]);
+
+            $nextImagePosition++;
+        }
     }
 
     return redirect()
-        ->route('products.edit-view', ['product' => $product->id])
-        ->with('status', 'Product updated successfully.');
+        ->route('admin-panel')
+        ->with('status', 'Product saved successfully.');
 })->middleware('auth')->name('products.update');
 
 Route::delete('/products/{product}', function (Product $product) use ($ensureAdmin) {
     $ensureAdmin();
+
+    foreach ($product->images as $image) {
+        $filePath = public_path('assets/img/' . $image->url);
+        if (file_exists($filePath) && is_file($filePath)) {
+            unlink($filePath);
+        }
+    }
 
     $product->delete();
 
