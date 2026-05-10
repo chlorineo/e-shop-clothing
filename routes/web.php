@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
+use App\Http\Controllers\CheckoutController;
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 
@@ -132,9 +133,20 @@ Route::get('/category', function () {
     ]);
 });
 
+
 Route::get('/cart', function () {
     return view('cart');
 });
+
+Route::get('/checkout/delivery', [CheckoutController::class, 'showDelivery'])->name('checkout.delivery');
+Route::post('/checkout/delivery', [CheckoutController::class, 'processDelivery'])->name('checkout.delivery.process');
+
+Route::get('/checkout/contact', [CheckoutController::class, 'showContact'])->name('checkout.contact');
+Route::post('/checkout/contact', [CheckoutController::class, 'processContact'])->name('checkout.contact.process');
+
+Route::get('/checkout/summary', [CheckoutController::class, 'showSummary'])->name('checkout.summary');
+Route::post('/checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('checkout.place');
+
 
 Route::get('/admin-panel', function () use ($ensureAdmin) {
     $ensureAdmin();

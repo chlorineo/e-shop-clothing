@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartController {
     public function add(Request $request) {
@@ -50,7 +52,19 @@ class CartController {
         }
 
         session()->put('cart', $cart);
-        ##dd(session()->get('cart'));
+        if (Auth::check()) {
+            $user = Auth::user();
+            Cart::where('user_id', $user->id)->delete();
+
+            foreach ($cart as $item) {
+                Cart::create([
+                    'user_id' => $user->id,
+                    'product_id' => $item['id'],
+                    'size' => $item['size'],
+                    'quantity' => $item['quantity']
+                ]);
+            }
+        }
 
         return redirect()->back();
     }

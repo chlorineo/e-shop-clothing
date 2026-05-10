@@ -28,6 +28,39 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        $user = $request->user();
+        $sessionCart = session()->get('cart', []);
+        $dbCarts = \App\Models\Cart::with('product.images')->where('user_id', $user->id)->get();
+
+        foreach ($dbCarts as $dbCart) {
+            $cartKey = $dbCart->product_id . '_' . $dbCart->size;
+
+            if (!isset($sessionCart[$cartKey])) {
+                $image = $dbCart->product->images->first();
+                $sessionCart[$cartKey] = [
+                    'id' => $dbCart->product_id,
+                    'name' => $dbCart->product->name,
+                    'quantity' => $dbCart->quantity,
+                    'price' => $dbCart->product->price,
+                    'size' => $dbCart->size,
+                    'image' => $image ? $image->url : null
+                ];
+            }
+        }
+
+        session()->put('cart', $sessionCart);
+
+        \App\Models\Cart::where('user_id', $user->id)->delete();
+
+        foreach ($sessionCart as $item) {
+            \App\Models\Cart::create([
+                'user_id' => $user->id,
+                'product_id' => $item['id'],
+                'size' => $item['size'],
+                'quantity' => $item['quantity']
+            ]);
+        }
+
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

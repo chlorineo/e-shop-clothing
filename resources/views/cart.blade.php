@@ -86,7 +86,7 @@
 
                     <section class="mt-5">
                         <div class="d-grid mt-2">
-                            <a href="delivery_details.blade.php" class="btn btn-outline-secondary btn-lg">Go to delivery</a>
+                            <a href="{{ route('checkout.delivery') }}" class="btn btn-outline-secondary btn-lg">Go to delivery</a>
                         </div>
                     </section>
                 </div>
